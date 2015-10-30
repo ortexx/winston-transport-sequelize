@@ -16,7 +16,7 @@
     "dependencies": {
         "sequelize": "*",
         "winston": "*"
-    }  
+    },  
 	"repository" : { 
 		"type" : "git",
 		"url" : "https://github.com/ortexx/winston-transport-sequelize"

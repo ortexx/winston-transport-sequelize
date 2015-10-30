@@ -1,0 +1,24 @@
+{
+    "name": "winston-transport-sequelize",
+    "version": "0.0.1",
+    "description": "Sequelize transport for module winston",
+    "main": "./winston-transport-sequelize.js",
+    "author": {
+        "name": "Balasyan Alexandr",
+        "email": "mywebstreet@gmail.com"
+    },
+    "keywords": [
+        "winston",
+        "transport",
+        "sequelize"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "sequelize": "*",
+        "winston": "*"
+    }  
+	"repository" : { 
+		"type" : "git",
+		"url" : "https://github.com/ortexx/winston-transport-sequelize"
+	}
+}

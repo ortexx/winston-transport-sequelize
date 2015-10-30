@@ -1,8 +1,8 @@
 # winston-transport-sequelize
 Sequelize transport for module winston
-#Install 
+# Install 
 `npm install winston-transport-sequelize`
-#Example
+# Example
 ```js
 var winston = require('winston');
 var winstonTransportSequelize = require('winston-transport-sequelize');
@@ -25,7 +25,7 @@ var log = new winston.Logger({
 
 Sequelize model will be created after sequelize.sync() 
 
-#More
+# More
 This transport has its own method `.clear([lifetime])`
 
 You can clear table using this. Lifetime option for filtering by "updateAt" field.

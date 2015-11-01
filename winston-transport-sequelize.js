@@ -29,9 +29,9 @@ var SequelizeTransport = module.exports = function (options) {
             }
         }
     }, {		
-		timestamps: true,
-		createdAt: 'createdAt',
-		updatedAt: 'updatedAt',	
+	timestamps: true,
+	createdAt: 'createdAt',
+	updatedAt: 'updatedAt',	
         indexes: [
             {
                 name: 'level',

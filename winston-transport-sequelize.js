@@ -28,7 +28,10 @@ var SequelizeTransport = module.exports = function (options) {
                 return JSON.parse(this.getDataValue('meta'));
             }
         }
-    }, {
+    }, {		
+		timestamps: true,
+		createdAt: 'createdAt',
+		updatedAt: 'updatedAt',	
         indexes: [
             {
                 name: 'level',

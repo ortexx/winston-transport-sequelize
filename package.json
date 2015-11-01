@@ -1,6 +1,6 @@
 {
     "name": "winston-transport-sequelize",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Sequelize transport for module winston",
     "main": "./winston-transport-sequelize.js",
     "author": {

@@ -59,9 +59,10 @@ SequelizeTransport.prototype.log = function (level, message, meta, callback) {
         var data = {
             message: message,
             level: level
-        }
+        };
+        
         if (typeof meta != 'object') {
-            throw new Error("Meta informtion must be object");
+            throw new Error("Meta information must be object");
         }
         
         if (!meta) {

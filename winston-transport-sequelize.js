@@ -5,7 +5,7 @@ var util = require('util');
 var SequelizeTransport = module.exports = function (options) {
     this.options = options || {};
     
-    this.name = 'sequelize';
+    this.name = options.name || 'sequelize';
     this.level = options.level || 'error';
     
     if (!this.options.tableName) {

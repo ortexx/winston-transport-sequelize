@@ -1,6 +1,6 @@
 {
     "name": "winston-transport-sequelize",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Sequelize transport for module winston",
     "main": "./winston-transport-sequelize.js",
     "author": {
@@ -16,8 +16,8 @@
     "dependencies": {
         "sequelize": "*",
         "winston": "*"
-    },  
-	"repository" : { 
+    },
+	"repository" : {
 		"type" : "git",
 		"url" : "https://github.com/ortexx/winston-transport-sequelize"
 	}

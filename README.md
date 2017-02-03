@@ -1,24 +1,27 @@
 # winston-transport-sequelize
-Sequelize transport for module winston
+Sequelize transport for winston
+
 # Install 
 `npm install winston-transport-sequelize`
+
 # Example
 ```js
-var winston = require('winston');
-var winstonTransportSequelize = require('winston-transport-sequelize');
-var Sequelize = require('sequelize');
+const winston = require('winston');
+const WinstonTransportSequelize = require('winston-transport-sequelize');
+const Sequelize = require('sequelize');
 
-var sequelize = new Sequelize(...);
+const sequelize = new Sequelize(...);
 
-var options = {
-  sequelize: sequelize,
+const options = {
+  sequelize: sequelize, // required
   tableName: 'WinstonLog' // this is defaultName
+  fields: { meta: Sequelize.JSONB } // you can merge model fields
   ... other winston transport options
 }
 
-var log = new winston.Logger({
+let logger = new winston.Logger({
   transports: [
-    new winstonTransportSequelize(options)
+    new WinstonTransportSequelize(options)
   ]
 });
 ```
@@ -28,6 +31,6 @@ Sequelize model will be created after sequelize.sync()
 You can find model in `transport.model`
 
 # More
-This transport has its own method `.clear([lifetime])`
+This transport has its own method `.clear([lifetime], [callback])`
 
-You can clear table using this. Lifetime(ms) option for filtering by "updateAt" field. 
+You can clear table using this. Lifetime(seconds) option for filtering by "updateAt" field. 

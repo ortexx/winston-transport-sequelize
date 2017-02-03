@@ -1,24 +1,35 @@
 {
-    "name": "winston-transport-sequelize",
-    "version": "0.0.5",
-    "description": "Sequelize transport for module winston",
-    "main": "./winston-transport-sequelize.js",
-    "author": {
-        "name": "Balasyan Alexandr",
-        "email": "mywebstreet@gmail.com"
-    },
-    "keywords": [
-        "winston",
-        "transport",
-        "sequelize"
-    ],
-    "license": "MIT",
-    "dependencies": {
-        "sequelize": "*",
-        "winston": "*"
-    },
-	"repository" : {
-		"type" : "git",
-		"url" : "https://github.com/ortexx/winston-transport-sequelize"
-	}
+  "name": "winston-transport-sequelize",
+  "version": "1.0.0",
+  "description": "Sequelize transport for module winston",
+  "main": "./winston-transport-sequelize.js",
+  "author": {
+    "name": "Balasyan Alexandr",
+    "email": "mywebstreet@gmail.com"
+  },
+  "keywords": [
+    "winston",
+    "transport",
+    "sequelize"
+  ],
+  "scripts": {
+    "test": "mocha"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "sequelize": "^3.29.0",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "chai": "^3.5.0",
+    "sqlite3": "^3.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ortexx/winston-transport-sequelize"
+  },
+  "engines": {
+    "node": ">=5.0.0"
+  }
 }

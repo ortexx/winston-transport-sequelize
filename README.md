@@ -14,8 +14,8 @@ const sequelize = new Sequelize(...);
 
 const options = {
   sequelize: sequelize, // required
-  tableName: 'WinstonLog' // this is defaultName
-  fields: { meta: Sequelize.JSONB } // you can merge model fields
+  tableName: 'WinstonLog', // this is defaultName
+  fields: { meta: Sequelize.JSONB }, // you can merge model fields
   ... other winston transport options
 }
 

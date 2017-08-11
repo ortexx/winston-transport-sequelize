@@ -3,7 +3,7 @@
 const assert = require('chai').assert;
 const Sequelize = require('sequelize');
 const winston = require('winston');
-const WinstonTransportSequelize = require('../winston-transport-sequelize');
+const WinstonTransportSequelize = require('../index');
 
 let sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'sqlite',

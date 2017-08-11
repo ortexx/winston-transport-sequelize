@@ -6,12 +6,10 @@ const winston = require('winston');
 class SequelizeTransport extends winston.Transport {
   constructor(options) {
     super(options);
-    this.options = options || {};
 
+    this.options = options || {};
     this.name = options.name || 'sequelize';
     this.level = options.level || 'error';
-
-    let fields = options.fields || {};
 
     if (!this.options.tableName) {
       this.options.tableName = 'WinstonLog';
@@ -21,7 +19,7 @@ class SequelizeTransport extends winston.Transport {
       throw new Error("Not found sequelize instance");
     }
 
-    let schema = Object.assign({
+    const schema = Object.assign({
       level: Sequelize.STRING,
       message: Sequelize.STRING,
       meta: {
@@ -33,9 +31,9 @@ class SequelizeTransport extends winston.Transport {
           return JSON.parse(this.getDataValue('meta'));
         }
       }
-    }, fields);
+    }, options.fields || {});
 
-    this.model = this.options.sequelize.define(this.options.tableName, schema, {
+    const modelOptions = Object.assign({
       timestamps: true,
       createdAt: 'createdAt',
       updatedAt: 'updatedAt',
@@ -45,7 +43,9 @@ class SequelizeTransport extends winston.Transport {
           fields: ['level']
         }
       ]
-    });
+    }, options.modelOptions || {});
+
+    this.model = this.options.sequelize.define(this.options.tableName, schema, modelOptions);
   }
 
   log(level, message, meta, callback) {
@@ -64,6 +64,7 @@ class SequelizeTransport extends winston.Transport {
       }
 
       data.meta = meta;
+
       this.model.create(data).then((log) => {
         this.emit('logged');
         callback(null, log.get());
@@ -82,7 +83,7 @@ class SequelizeTransport extends winston.Transport {
       lifetime = undefined;
     }
 
-    var clause = {truncate: true};
+    let  clause = { truncate: true };
 
     if (typeof lifetime == 'number') {
       clause = { where: { updatedAt: { $lt: new Date(Date.now() - lifetime * 1000) } } };

@@ -5,13 +5,13 @@ const Sequelize = require('sequelize');
 const winston = require('winston');
 const WinstonTransportSequelize = require('../index');
 
-let sequelize = new Sequelize('database', 'username', 'password', {
+const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'sqlite',
   storage: ':memory:',
   logging: false
 });
 
-let logger = new winston.Logger({
+const logger = new winston.Logger({
   transports: [
     new WinstonTransportSequelize({
       level: 'info',

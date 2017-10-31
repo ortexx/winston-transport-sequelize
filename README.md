@@ -5,6 +5,7 @@ Sequelize transport for winston
 `npm install winston-transport-sequelize`
 
 # Example
+
 ```js
 const winston = require('winston');
 const WinstonTransportSequelize = require('winston-transport-sequelize');

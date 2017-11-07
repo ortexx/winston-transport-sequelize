@@ -18,7 +18,7 @@ const options = {
   tableName: 'WinstonLog', // this is defaultName
   fields: { meta: Sequelize.JSONB }, // you can merge model fields
   modelOptions: { timestamps: false }, // you can merge model options
-  ... other winston transport options
+  //... other winston transport options
 }
 
 const logger = new winston.Logger({

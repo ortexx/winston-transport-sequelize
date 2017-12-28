@@ -11,7 +11,7 @@ const winston = require('winston');
 const WinstonTransportSequelize = require('winston-transport-sequelize');
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize(...);
+const sequelize = new Sequelize();
 
 const options = {
   sequelize: sequelize, // required

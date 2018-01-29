@@ -66,8 +66,12 @@ class SequelizeTransport extends winston.Transport {
       }
 
       data.meta = meta;
-      data.application = this.options.application;
-      data.environment = this.options.environment;
+      if(this.options.application) {
+        data.application = this.options.application;
+      }
+      if(this.options.environment) {
+        data.environment = this.options.environment;
+      }
 
       this.model.create(data).then((log) => {
         this.emit('logged');

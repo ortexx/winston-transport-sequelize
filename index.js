@@ -16,7 +16,7 @@ class SequelizeTransport extends winston.Transport {
     }
 
     if (!this.options.sequelize) {
-      throw new Error("Not found sequelize instance");
+      throw new Error("Not found a sequelize instance");
     }
 
     const schema = Object.assign({
@@ -49,14 +49,14 @@ class SequelizeTransport extends winston.Transport {
   }
 
   log(level, message, meta, callback) {
-    let log = () => {
+    const log = () => {
       let data = {
         message: message,
         level: level
       };
 
       if (typeof meta != 'object') {
-        throw new Error("Meta information must be object");
+        throw new Error("Meta information must be an object");
       }
 
       if (!meta) {

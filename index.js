@@ -30,7 +30,9 @@ class SequelizeTransport extends winston.Transport {
         get: function () {
           return JSON.parse(this.getDataValue('meta'));
         }
-      }
+      },
+      application: Sequelize.STRING,
+      environment: Sequelize.STRING,
     }, options.fields || {});
 
     const modelOptions = Object.assign({
@@ -64,6 +66,12 @@ class SequelizeTransport extends winston.Transport {
       }
 
       data.meta = meta;
+      if(this.options.application) {
+        data.application = this.options.application;
+      }
+      if(this.options.environment) {
+        data.environment = this.options.environment;
+      }
 
       this.model.create(data).then((log) => {
         this.emit('logged');

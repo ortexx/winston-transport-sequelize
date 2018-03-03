@@ -83,7 +83,7 @@ class SequelizeTransport extends winston.Transport {
       lifetime = undefined;
     }
 
-    let  clause = { truncate: true };
+    let clause = { truncate: true };
 
     if (typeof lifetime == 'number') {
       clause = { where: { updatedAt: { $lt: new Date(Date.now() - lifetime * 1000) } } };

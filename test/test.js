@@ -8,7 +8,8 @@ const WinstonTransportSequelize = require('../index');
 const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'sqlite',
   storage: ':memory:',
-  logging: false
+  logging: false,
+  operatorsAliases: false
 });
 
 const logger = new winston.Logger({
@@ -55,7 +56,6 @@ describe('WinstonTransportSequelize:', function () {
     }
 
     transportCallback(onLogged, () => { throw new Error('Error in the log function') });
-
     logger.info(message, meta);
   });
 

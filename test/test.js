@@ -16,7 +16,8 @@ const logger = new winston.Logger({
   transports: [
     new WinstonTransportSequelize({
       level: 'info',
-      sequelize: sequelize
+      sequelize: sequelize,
+      meta: { project: 'myProject' }
     })
   ]
 });
@@ -49,8 +50,9 @@ describe('WinstonTransportSequelize:', function () {
     function onLogged() {
       transport.model.findOne({ where: { message: 'message' } }).then((res) => {
         res = res.get();
-        assert.equal(res.level, 'info', 'different level');
-        assert.equal(JSON.stringify(res.meta), JSON.stringify(res.meta), 'different meta objects');
+        assert.equal(res.level, 'info', 'check level');
+        assert.equal(res.meta.meta, 'meta', 'check meta.meta');
+        assert.equal(res.meta.project, 'myProject', 'check meta.project');
         done();
       });
     }

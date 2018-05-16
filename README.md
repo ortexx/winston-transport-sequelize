@@ -14,11 +14,11 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize();
 
 const options = {
-  sequelize: sequelize, // required
-  tableName: 'WinstonLog', // this is default name
-  fields: { meta: Sequelize.JSONB }, // you can merge model fields
-  modelOptions: { timestamps: false }, // you can merge model options
-  //... other winston transport options
+  sequelize: sequelize, // sequelize instance [required]
+  tableName: 'WinstonLog', // default name
+  meta: { project: 'myProject' }, // meta object defaults
+  fields: { meta: Sequelize.JSONB }, // merge model fields
+  modelOptions: { timestamps: false }, // merge model options
 }
 
 const logger = new winston.Logger({
@@ -35,4 +35,4 @@ You can find model in `transport.model`
 # More
 This transport has its own method `.clear([lifetime], [callback])`
 
-You can clear table using this. Lifetime(seconds) option for filtering by "updateAt" field. 
+You can clear table using this.lifetime(seconds) option for filtering by "updateAt" field. 

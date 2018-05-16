@@ -59,11 +59,7 @@ class SequelizeTransport extends winston.Transport {
         throw new Error("Meta information must be an object");
       }
 
-      if (!meta) {
-        meta = {};
-      }
-
-      data.meta = meta;
+      data.meta = Object.assign({}, this.options.meta || {}, meta || {});
 
       this.model.create(data).then((log) => {
         this.emit('logged');

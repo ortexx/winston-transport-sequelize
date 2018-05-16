@@ -35,4 +35,4 @@ You can find model in `transport.model`
 # More
 This transport has its own method `.clear([lifetime], [callback])`
 
-You can clear table using this.lifetime(seconds) option for filtering by "updateAt" field. 
+You can clear table using this.clear(seconds) option for filtering by "updateAt" field. 

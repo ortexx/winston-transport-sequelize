@@ -30,7 +30,7 @@ const logger = new winston.Logger({
 
 Sequelize model will be created after sequelize.sync()
 
-You can find model in `transport.model`
+You can find the model in `transport.model`
 
 # More
 This transport has its own method `.clear([lifetime], [callback])`

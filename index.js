@@ -2,8 +2,9 @@
 
 const Sequelize = require('sequelize');
 const winston = require('winston');
+const Transport = require('winston-transport');
 
-class SequelizeTransport extends winston.Transport {
+class SequelizeTransport extends Transport {
   constructor(options) {
     super(options);
 
@@ -48,14 +49,16 @@ class SequelizeTransport extends winston.Transport {
     this.model = this.options.sequelize.define(this.options.tableName, schema, modelOptions);
   }
 
-  log(level, message, meta, callback) {
+  log(info, callback) {
     const log = () => {
-      let data = {
-        message: message,
-        level: level
+      const data = {
+        message: info.message,
+        level: info.level
       };
 
-      if (typeof meta != 'object') {
+      const meta = info.meta;
+      
+      if (meta && typeof meta != 'object') {
         throw new Error("Meta information must be an object");
       }
 

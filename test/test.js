@@ -56,7 +56,7 @@ describe('WinstonTransportSequelize:', function () {
     }
 
     transportCallback(onLogged, () => { throw new Error('Error in the log function') });
-    logger.info(message, meta);
+    logger.info(message, { meta: meta });
   });
 
   it('#clear()', function () {

@@ -1,6 +1,6 @@
 {
   "name": "winston-transport-sequelize",
-  "version": "1.1.2",
+  "version": "3.0.0",
   "description": "Sequelize transport for module winston",
   "main": "./index.js",
   "author": {
@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "sequelize": "^4.37.1",
-    "winston": "^2.4.1"
+    "winston": "^3.0.0"
   },
   "devDependencies": {
     "mocha": "^3.2.0",

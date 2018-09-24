@@ -12,17 +12,15 @@ const sequelize = new Sequelize('database', 'username', 'password', {
   operatorsAliases: false
 });
 
-const logger = new winston.Logger({
-  transports: [
-    new WinstonTransportSequelize({
-      level: 'info',
-      sequelize: sequelize,
-      meta: { project: 'myProject' }
-    })
-  ]
+const transport = new WinstonTransportSequelize({
+  level: 'info',
+  sequelize: sequelize,
+  meta: { project: 'myProject' }
 });
 
-let transport = logger.transports.sequelize;
+const logger = winston.createLogger({
+  transports: [transport]
+});
 
 describe('WinstonTransportSequelize:', function () {
   let message = 'message';

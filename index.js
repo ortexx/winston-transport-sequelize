@@ -22,7 +22,7 @@ class SequelizeTransport extends Transport {
 
     const schema = Object.assign({
       level: Sequelize.STRING,
-      message: Sequelize.STRING,
+      message: Sequelize.TEXT,
       meta: {
         type: Sequelize.TEXT,
         set: function (value) {

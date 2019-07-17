@@ -10,7 +10,6 @@ Sequelize transport for winston
 const winston = require('winston');
 const WinstonTransportSequelize = require('winston-transport-sequelize');
 const Sequelize = require('sequelize');
-
 const sequelize = new Sequelize();
 
 const options = {
@@ -28,11 +27,11 @@ const logger = new winston.Logger({
 });
 ```
 
-Sequelize model will be created after sequelize.sync()
+Sequelize model is created after __sequelize.sync()__
 
 You can find the model in `transport.model`
 
 # More
-This transport has its own method `.clear([lifetime], [callback])`
+This transport has own method `.clean([lifetime], [callback])`
 
-You can clear table using this.clear(seconds) option for filtering by "updateAt" field. 
+You can clean the old data via __this.clean(ms)__, filtering by "updateAt" field.

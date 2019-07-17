@@ -9,7 +9,7 @@ const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'sqlite',
   storage: ':memory:',
   logging: false,
-  operatorsAliases: false
+  operatorsAliases: +((Sequelize.version || '').split('.')[0]) >=5? undefined: false
 });
 
 const transport = new WinstonTransportSequelize({
@@ -44,7 +44,7 @@ describe('WinstonTransportSequelize:', function () {
     transport.on('logged', onLogged).on('error', onError);
   }
 
-  it('#log()', function (done) {
+  it('.log()', function (done) {
     function onLogged() {
       transport.model.findOne({ where: { message: 'message' } }).then((res) => {
         res = res.get();
@@ -59,13 +59,13 @@ describe('WinstonTransportSequelize:', function () {
     logger.info(message, { meta: meta });
   });
 
-  it('#clear()', function () {
-    return transport.clear(2).then(() => {
+  it('.clean()', function () {
+    return transport.clean(2000).then(() => {
       return transport.model.count().then((count) => {
         assert.equal(count, 1);
       });
     }).then(() => {
-      return transport.clear().then(() => {
+      return transport.clean().then(() => {
         return transport.model.count().then((count) => {
           assert.equal(count, 0);
         });

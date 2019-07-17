@@ -76,7 +76,7 @@ class SequelizeTransport extends Transport {
     return log();
   }
 
-  clear(lifetime, callback) {
+  clean(lifetime, callback) {
     if (typeof lifetime == 'function') {
       callback = lifetime;
       lifetime = undefined;
@@ -85,7 +85,13 @@ class SequelizeTransport extends Transport {
     let clause = { truncate: true };
 
     if (typeof lifetime == 'number') {
-      clause = { where: { updatedAt: { [Sequelize.Op.lt]: new Date(Date.now() - lifetime * 1000) } } };
+      clause = { 
+        where: { 
+          updatedAt: { 
+            [Sequelize.Op? Sequelize.Op.lt: 'lt']: new Date(Date.now() - lifetime) 
+          } 
+        } 
+      };
     }
 
     return this.model.destroy(clause).then(() => {

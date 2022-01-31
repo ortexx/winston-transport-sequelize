@@ -1,6 +1,6 @@
 {
   "name": "winston-transport-sequelize",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "description": "Sequelize transport for module winston",
   "main": "./index.js",
   "author": {
@@ -23,8 +23,8 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^7.1.1",
-    "sqlite3": "^4.1.1"
+    "mocha": "^9.2.0",
+    "sqlite3": "^4.2.0"
   },
   "repository": {
     "type": "git",

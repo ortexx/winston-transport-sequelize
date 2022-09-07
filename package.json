@@ -1,6 +1,6 @@
 {
   "name": "winston-transport-sequelize",
-  "version": "4.0.9",
+  "version": "4.0.10",
   "description": "Sequelize transport for module winston",
   "main": "./index.js",
   "author": {
